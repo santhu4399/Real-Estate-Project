@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+  </head>
+  <body>
+    new Agent Registration
+    <form class="" action="/agents/newAgentRegistration" method="post">
+      <input type="text" name="firstname"><br>
+      <input type="text" name="lastname"><br>
+      <input type="text" name="company"><br>
+      <input type="text" name="email"><br>
+      <input type="text" name="phno"><br>
+      <input type="text" name="address"><br>
+      <input type="text" name="security_question"><br>
+      <input type="text" name="security_answer"><br>
+      <input type="text" name="password"><br>
+      <input type="submit">
+    </form><br>
+    login
+    <form class="" action="/agents/login" method="post">
+      <input type="text" name="email"><br>
+      <input type="text" name="password"><br>
+      <input type="submit">
+    </form><br>
+    forgot Password
+    <form class="" action="/agents/forgotPassword" method="post">
+      <input type="text" name="email" required><br>
+      <input type="submit">
+    </form><br>
+    recover Password
+    <form class="" action="/agents/recoverPassword" method="post">
+      <input type="text" name="id"><br>
+      <input type="text" name="email"><br>
+      <input type="text" name="phno"><br>
+      <input type="text" name="security_question"><br>
+      <input type="text" name="security_answer"><br>
+      <input type="submit">
+    </form><br>
+    reset Password
+    <form class="" action="/agents/resetPassword" method="post">
+      <input type="text" name="id"><br>
+      <input type="text" name="email"><br>
+      <input type="text" name="password"><br>
+      <input type="submit">
+    </form><br>
+    update Agent Information
+    <form class="" action="/agents/updateProfile" method="post">
+      <input type="text" name="id"><br>
+      <input type="text" name="firstname"><br>
+      <input type="text" name="lastname"><br>
+      <input type="text" name="company"><br>
+      <input type="text" name="email"><br>
+      <input type="text" name="phno"><br>
+      <input type="text" name="address"><br>
+      <input type="submit">
+    </form><br>
+  </body>
+</html>
