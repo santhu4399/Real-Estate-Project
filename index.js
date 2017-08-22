@@ -24,20 +24,3 @@ app.get('/', function(req, res){
 app.listen(app.get('port'),function(){
   console.log("server started on port "+app.get('port'));
 });
-
-//EndPoints
-// app.get('/advanceSearchProperty/:filter',function(req, res){
-//           var filters = [req.params.filter];
-//           var result = _this.advanceSearchProperty(filters);
-//           res.send(result);
-// });
-// app.get('/advanceSearchProperty/:filter1/:filter2',function(req, res){
-//           var filters = [req.params.filter1,req.params.filter2];
-//           var result = _this.advanceSearchProperty(filters);
-//           res.send(result);
-// });
-// app.get('/advanceSearchProperty/:filter1/:filter2/:filter3',function(req, res){
-//           var filters = [req.params.filter1,req.params.filter2,req.params.filter3];
-//           var result = _this.advanceSearchProperty(filters);
-//           res.send(result);
-// });
