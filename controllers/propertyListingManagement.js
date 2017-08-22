@@ -15,7 +15,7 @@ module.exports.listAllProperties = function(callback){
     });
   });
 }
-
+//1. list all properties of perticular Agents
 module.exports.agentPropertyList = function(agent_id, callback){
   var q = "select * from property_list where agent_id="+agent_id;
   pool.getConnection(function(error, connection){
