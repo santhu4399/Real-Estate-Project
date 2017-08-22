@@ -2,6 +2,12 @@ var express = require('express');
 var userManagement = require('../controllers/userManagement');
 var router = express.Router();
 
+router.get('/',function(req,res){
+  // var index = fs.readFileSync('./first.html');
+  // res.end(index);
+  res.sendFile('users.html',{root:'./'})
+});
+
 //Login Router starts
 router.post('/login',function(req, res){
   console.log(req.body);

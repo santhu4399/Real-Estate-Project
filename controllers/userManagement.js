@@ -57,9 +57,6 @@ module.exports.userLogin = function(email, password, callback){
 
 //3. Forgot Password function
 //parameters===>  1. email:string;
-//                2. phno:integer;
-//                3. secqn:string; security question for authentication
-//                4. secans:string; security answer for authentication
 module.exports.forgotPassword = function(email, callback){
   var q = "select * from users where email='"+email+"'";
   pool.getConnection(function(error, connection){
