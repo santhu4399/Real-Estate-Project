@@ -4,18 +4,21 @@ var fs = require('fs');
 var agents = require('./routes/agents');
 var users = require('./routes/users');
 var propertyListing = require('./routes/property');
+var search = require('./routes/search');
 
 var app = express();
 app.set('port',process.env.PORT||3000);
 app.use(bodyParser.urlencoded({ extended: false }))
-// var _this = this;
+
 app.use('/agents',agents);
 app.use('/users',users);
 app.use('/propertyListing', propertyListing);
+app.use('/search',search);
 
 //for testing
 app.get('/', function(req, res){
-  res.send("home page.......");
+  // res.send("home page.......");
+  res.sendFile('search.html',{root:'./'})
 });
 
 app.listen(app.get('port'),function(){

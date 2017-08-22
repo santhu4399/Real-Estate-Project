@@ -5,8 +5,8 @@ module.exports.listAllProperties = function(callback){
   pool.getConnection(function(error, connection){
     if (error) return callback(error);
     connection.query(q,function(error, results, fields){
+      connection.release();
       if (error) return callback(error);
-      console.log(results.length);
       if (results.length == 0) {
         return callback([false,"Total Property count is zero.... can not get property List"]);
       }else {
@@ -21,8 +21,8 @@ module.exports.agentPropertyList = function(agent_id, callback){
   pool.getConnection(function(error, connection){
     if (error) return callback(error);
     connection.query(q,function(error, results, fields){
+      connection.release();
       if (error) return callback(error);
-      console.log(results.length);
       if (results.length == 0) {
         return callback([false,"Total Property count is zero.... can not get property List"]);
       }else {
