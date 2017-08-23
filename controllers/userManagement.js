@@ -41,7 +41,7 @@ module.exports.userLogin = function(email, password, callback){
     if(error) return callback(error);
     connection.query(q,function(error,results,fields){
       connection.release();
-      if(error) throw error;
+      if(error) return callback(error);
       if (results.length == 0) {
         return callback(false);
       }else {
