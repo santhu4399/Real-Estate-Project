@@ -11,8 +11,8 @@ router.get('/',function(req,res){
 //Login Router starts
 router.post('/login',function(req, res){
   console.log(req.body);
-  var email = req.body.email;
-  var password = req.body.password;
+  var email = req.body.email.trim();
+  var password = req.body.password.trim();
     if (!email || !password) {
             res.redirect('/');
     }
@@ -33,15 +33,15 @@ router.post('/login',function(req, res){
 // New Agent Registration Router starts
 router.post('/newAgentRegistration', function(req, res){
     console.log(req.body);
-    var firstname = req.body.firstname;
-    var lastname = req.body.lastname;
-    var company = req.body.company;
-    var email = req.body.email;
-    var phno = req.body.phno;
-    var address = req.body.address;
-    var security_question = req.body.security_question;
-    var security_answer = req.body.security_answer;
-    var password = req.body.password;
+    var firstname = req.body.firstname.trim();
+    var lastname = req.body.lastname.trim();
+    var company = req.body.company.trim();
+    var email = req.body.email.trim();
+    var phno = req.body.phno.trim();
+    var address = req.body.address.trim();
+    var security_question = req.body.security_question.trim();
+    var security_answer = req.body.security_answer.trim();
+    var password = req.body.password.trim();
     if (!firstname || !lastname || !company || !email || !phno || !address || !security_question || !security_answer || !password) {
             res.redirect('/');
     }
@@ -55,7 +55,7 @@ router.post('/newAgentRegistration', function(req, res){
 // New Agent Registration Router ends
 // forgot password router starts
 router.post('/forgotPassword', function(req, res){
-  var email = req.body.email;
+  var email = req.body.email.trim();
   if (!email) {
     res.redirect('/');
   }else {
@@ -75,11 +75,11 @@ router.post('/forgotPassword', function(req, res){
 // recover password router starts
 router.post('/recoverPassword', function(req, res){
     console.log(req.body);
-    var id = req.body.id;
-    var email = req.body.email;
-    var phno = req.body.phno;
-    var security_question = req.body.security_question;
-    var security_answer = req.body.security_answer;
+    var id = req.body.id.trim();
+    var email = req.body.email.trim();
+    var phno = req.body.phno.trim();
+    var security_question = req.body.security_question.trim();
+    var security_answer = req.body.security_answer.trim();
     if (!id || !email ||!phno || !security_question || !security_answer) {
       res.redirect('/');
     }
@@ -97,9 +97,9 @@ router.post('/recoverPassword', function(req, res){
 // recover password router ends
 // reset password router starts
 router.post('/resetPassword', function(req, res){
-  var id = req.body.id;
-  var email = req.body.email;
-  var password = req.body.password;
+  var id = req.body.id.trim();
+  var email = req.body.email.trim();
+  var password = req.body.password.trim();
   if (!id || !email || !password) {
     res.redirect('/');
   }else {
@@ -117,13 +117,13 @@ router.post('/resetPassword', function(req, res){
 //update agent Information route starts
 router.post('/updateProfile', function(req, res){
   console.log(req.body);
-  var id = req.body.id;
-  var firstname = req.body.firstname;
-  var lastname = req.body.lastname;
-  var company = req.body.company;
-  var email = req.body.email;
-  var phno = req.body.phno;
-  var address = req.body.address;
+  var id = req.body.id.trim();
+  var firstname = req.body.firstname.trim();
+  var lastname = req.body.lastname.trim();
+  var company = req.body.company.trim();
+  var email = req.body.email.trim();
+  var phno = req.body.phno.trim();
+  var address = req.body.address.trim();
   if (!id || !firstname || !lastname || !company ||!email || !phno || !address) {
           res.redirect('/');
   }

@@ -8,7 +8,7 @@ var search = require('./routes/search');
 
 var app = express();
 app.set('port',process.env.PORT||3000);
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/agents',agents);
 app.use('/users',users);
