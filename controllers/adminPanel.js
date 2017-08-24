@@ -1,11 +1,30 @@
-//1. Total Users Resgistered function
-module.exports.totalUsersRegistered = function(){
-return "Returns total number of users Resgistered count";
-}
+var pool = require('../models/connect');
 
-//2. Total Agents Resgistered function
-module.exports.totalAgentsRegistered = function(){
-  return "Returns total number of agents Resgistered count";
+module.exports.adminLogin = function(email, password, callback){
+  var q = "select * from admin where email='"+email+"'AND password='"+password+"'";
+  pool.getConnection(function(error, connection){
+    if(error) return callback(error);
+    connection.query(q,function(error,results,fields){
+      connection.release();
+      if(error) return callback(error);
+      if (results.length == 0) {
+        return callback(false);
+      }else {
+          return callback([true,`${results[0].email}`]);
+      }
+    });
+  });
+}
+module.exports.getAdminDashboard = function(id, callback){
+  var q = `call adminDashboard('${id}')`;
+  pool.getConnection(function(error, connection){
+    if(error) return callback(error);
+    connection.query(q,function(error,results,fields){
+      connection.release();
+        if(error) return callback(error);
+        return callback(results);
+    });
+  });
 }
 
 //3. present users logged in the portal
