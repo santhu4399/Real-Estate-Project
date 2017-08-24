@@ -13,11 +13,11 @@ router.post('/login',function(req, res){
       else {
           adminpanel.adminLogin(email, password, function(callback){
             if (callback[0] == true) {
-              // res.redirect(`/admin/dashboard/${callback[1]}`);
-              request.post({url:'http://localhost:3000/admin/dashboard/post', form: {id:`${callback[1]}`}}, function(err,response,body){
-                if(err) throw err;
-                res.send(body);
-              });
+              res.redirect(`/admin/dashboard/${callback[1]}`);
+              // request.post({url:'http://localhost:3000/admin/dashboard/post', form: {id:`${callback[1]}`}}, function(err,response,body){
+              //   if(err) throw err;
+              //   res.send(body);
+              // });
             }
             else {
               console.log(callback);
@@ -33,12 +33,40 @@ router.get('/dashboard/:id',function(req,res){
   });
 });
 
-router.post('/dashboard/post',function(req,res){
-  // console.log("from post method");
-  // console.log(req.body);
-  adminpanel.getAdminDashboard(req.body.id, function(callback){
+// router.post('/dashboard/post',function(req,res){
+//   adminpanel.getAdminDashboard(req.body.id, function(callback){
+//     res.send(callback);
+//   });
+// });
+
+router.get('/getAllUsers',function(req, res){
+      adminpanel.userAccessManagement(function(callback){
+        res.send(callback);
+      });
+});
+router.get('/getAllAgents',function(req, res){
+  adminpanel.agentAccessManagement(function(callback){
     res.send(callback);
   });
 });
-
+router.post('/blockUser',function(req, res){
+  adminpanel.blockUser(req.body.email, function(callback){
+      res.send(callback);
+  });
+});
+router.post('/unBlockUser',function(req, res){
+  adminpanel.unBlockUser(req.body.email, function(callback){
+      res.send(callback);
+  });
+});
+router.post('/blockAgent',function(req, res){
+  adminpanel.blockAgent(req.body.email, function(callback){
+      res.send(callback);
+  });
+});
+router.post('/unBlockAgent',function(req, res){
+  adminpanel.unBlockAgent(req.body.email, function(callback){
+      res.send(callback);
+  });
+});
 module.exports = router;
