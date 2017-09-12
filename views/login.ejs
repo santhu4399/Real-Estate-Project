@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style media="screen">
+    .wrapper {
+margin-top: 80px;
+margin-bottom: 20px;
+}
+
+.form-signin {
+max-width: 420px;
+padding: 30px 38px 66px;
+margin: 0 auto;
+background-color: #eee;
+border: 3px dotted rgba(0,0,0,0.1);
+}
+
+.form-signin-heading {
+text-align:center;
+margin-bottom: 30px;
+}
+
+.form-control {
+position: relative;
+font-size: 16px;
+height: auto;
+padding: 10px;
+}
+
+input[type="text"] {
+margin-bottom: 0px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+margin-bottom: 20px;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+
+.colorgraph {
+height: 7px;
+border-top: 0;
+background: #c4e17f;
+border-radius: 5px;
+background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+.wrapper{
+  display: none;
+}
+    </style>
+    <script type="text/javascript">
+    function showUserForm(){
+      // document.getElementById('userform').style.display = "Block";
+      $('#adminform').hide();
+      $('#agentform').hide();
+      $('#registrationform').hide();
+      $('#userform').show();
+    }
+    function showAgentForm(){
+      // document.getElementById('userform').style.display = "Block";
+      $('#userform').hide();
+      $('#adminform').hide();
+      $('#registrationform').hide();
+      $('#agentform').show();
+    }
+    function showAdminForm(){
+      // document.getElementById('userform').style.display = "Block";
+      $('#userform').hide();
+      $('#agentform').hide();
+      $('#registrationform').hide();
+      $('#adminform').show();
+    }
+    function showSignUpForm(){
+      // document.getElementById('userform').style.display = "Block";
+      $('#userform').hide();
+      $('#agentform').hide();
+      $('#adminform').hide();
+      $('#registrationform').show();
+    }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <!-- <div class="navbar-header">
+    <a class="navbar-brand" href="#">WebSiteName</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Page 1</a></li>
+    <li><a href="#">Page 2</a></li>
+  </ul> -->
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#" onclick="showSignUpForm()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="#" onclick="showUserForm()"><span class="glyphicon glyphicon-log-in user"></span> User Login</a></li>
+    <li><a href="#" onclick="showAgentForm()"><span class="glyphicon glyphicon-log-in agent"></span> Agent Login</a></li>
+    <li><a href="#" onclick="showAdminForm()"><span class="glyphicon glyphicon-log-in admin"></span> Admin Login</a></li>
+  </ul>
+</div>
+</nav>
+    <div class = "container">
+
+	<div id="userform" class="wrapper">
+		<form action="/users/login" method="post" name="Login_Form" class="form-signin">
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+        <p>User Login</p>
+			  <input type="text" class="form-control" name="email" placeholder="Username" required="" autofocus="" />
+			  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+		</form>
+	</div>
+
+  <div id="agentform" class="wrapper">
+		<form action="/agents/login" method="post" name="Login_Form" class="form-signin">
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+        <p>Agent Login</p>
+			  <input type="text" class="form-control" name="email" placeholder="Username" required="" autofocus="" />
+			  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+		</form>
+	</div>
+  <div id="adminform" class="wrapper">
+		<form action="/admin/login" method="post" name="Login_Form" class="form-signin">
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+        <p>Admin Login</p>
+			  <input type="text" class="form-control" name="email" placeholder="Username" required="" autofocus="" />
+			  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+		</form>
+	</div>
+  <div id="registrationform" class="wrapper">
+    <form action="/admin/login" method="post" name="Login_Form" class="form-signin" autocomplete="off">
+        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+        <hr class="colorgraph"><br>
+        <p>Registration</p>
+        <input type="text" class="form-control" name="firstname" placeholder="firstname" required="" autofocus="" />
+        <input type="text" class="form-control" name="lastname" placeholder="lastname" required="" />
+        <input type="text" class="form-control" name="email" placeholder="email" required="" />
+        <input type="text" class="form-control" name="phno" placeholder="phno" required="" />
+        <input type="text" class="form-control" name="address" placeholder="address" required="" />
+        <input type="text" class="form-control" name="security_question" placeholder="security_question" required="" />
+        <input type="text" class="form-control" name="security_answer" placeholder="security_answer" required="" />
+        <input type="password" class="form-control" name="password" placeholder="password" required="" />
+
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+    </form>
+  </div>
+</div>
+  </body>
+</html>

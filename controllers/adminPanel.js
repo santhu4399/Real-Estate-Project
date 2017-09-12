@@ -27,10 +27,6 @@ module.exports.getAdminDashboard = function(id, callback){
   });
 }
 
-module.exports.getAllClients = function(callback){
-
-
-}
 //3. present users logged in the portal
 module.exports.currentUsersLog = function(){
   return "Returns emails of current logged users in the portal";
