@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser =  require("body-parser");
 var fs = require('fs');
 var ejs = require('ejs');
+var validator = require('express-validator');
 var agents = require('./routes/agents');
 var users = require('./routes/users');
 var propertyListing = require('./routes/property');
@@ -12,6 +13,8 @@ var app = express();
 app.set('port',process.env.PORT||3000);
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
+app.use(express.static('public'));
 
 app.use('/agents', agents);
 app.use('/users', users);
@@ -22,7 +25,7 @@ app.use('/admin',adminpanel);
 //for testing
 app.get('/', function(req, res){
   // res.sendFile('admin.html',{root:'./'});
-  res.render('login');
+  res.render('login',{error:'',success:''});
 });
 
 app.listen(app.get('port'),function(){

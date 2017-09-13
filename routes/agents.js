@@ -13,10 +13,13 @@ router.post('/login',function(req, res){
   console.log(req.body);
   var email = req.body.email.trim();
   var password = req.body.password.trim();
-    if (!email || !password) {
-            res.redirect('/');
-    }
-    else {
+  req.check("email", "Enter a valid email address.").isEmail();
+  req.check('password', 'Password Incorrect').len(8, 30);
+  var error = [];
+  var errors = req.validationErrors();
+        if (errors) {
+          res.render('login',{error:errors,user:false,agent:true,admin:false,reg:false,success:''});
+        }else {
         agentManagement.agentLogin(email, password, function(callback){
           if (callback == true) {
             res.send("login success....");

@@ -7,10 +7,13 @@ var request = require('request');
 router.post('/login',function(req, res){
     var email = req.body.email.trim();
     var password = req.body.password.trim();
-      if (!email || !password) {
-              res.redirect('/');
-      }
-      else {
+    req.check("email", "Enter a valid email address.").isEmail();
+    req.check('password', 'Password Incorrect').len(8, 30);
+    var error = [];
+    var errors = req.validationErrors();
+          if (errors) {
+            res.render('login',{error:errors,user:false,agent:false,admin:true,reg:false,success:''});
+          }else {
           adminpanel.adminLogin(email, password, function(callback){
             if (callback[0] == true) {
               res.redirect(`/admin/dashboard/${callback[1]}`);
@@ -44,29 +47,35 @@ router.get('/getAllUsers',function(req, res){
         res.send(callback);
       });
 });
+
 router.get('/getAllAgents',function(req, res){
   adminpanel.agentAccessManagement(function(callback){
     res.send(callback);
   });
 });
+
 router.post('/blockUser',function(req, res){
   adminpanel.blockUser(req.body.email, function(callback){
       res.send(callback);
   });
 });
+
 router.post('/unBlockUser',function(req, res){
   adminpanel.unBlockUser(req.body.email, function(callback){
       res.send(callback);
   });
 });
+
 router.post('/blockAgent',function(req, res){
   adminpanel.blockAgent(req.body.email, function(callback){
       res.send(callback);
   });
 });
+
 router.post('/unBlockAgent',function(req, res){
   adminpanel.unBlockAgent(req.body.email, function(callback){
       res.send(callback);
   });
 });
+
 module.exports = router;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <style media="screen">
+    html,body{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+      .navbar{
+        background-color: #587fbc;
+        width: 100%;
+        height: 10%;
+        color: white;
+      }
+      .userimg{
+        float: right;
+        position: relative;
+        padding-top: 10px;
+        padding-right: 30px;
+        color: white;
+      }
+      .img1{
+        width: 30px;
+        height: 30px;
+      }
+      .mainbody{
+        width: 100%;
+        height: 90%;
+        background-color: gray;
+        position: relative;
+      }
+      .mainmenu{
+        width: 25%;
+        height: 100%;
+        max-height: 110%;
+        background-color: black;
+        position: relative;
+        display: inline-block;
+        float: left;
+      }
+      .subbody{
+        width: 75%;
+        height: 100%;
+        max-height: 300%;
+        background-color: #f3f4ef;
+        position: relative;
+        display: inline-block;
+        float: left;
+      }
+      .box{
+        margin: 40px;
+        padding-left: 15px;
+        padding-top: 15px;
+        width: 200px;
+        height: 100px;
+        background-color: #fcd380;
+        color: green;
+        font-weight: bolder;
+        font-size: 20px;
+        display: inline-block;
+        position: relative;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="navbar">
+        <span class="userimg"><img class="img1" src="../images/user.png" alt="usericon"><span class="username">&nbsp;&nbsp; <%=data.userName%></span></span>
+      </div>
+      <div class="mainbody">
+        <div class="mainmenu"></div>
+        <div class="subbody">
+            <div class="box"><%=data.totalSale%><br><br>Total Sales</div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+      </div>
+  </body>
+</html>
